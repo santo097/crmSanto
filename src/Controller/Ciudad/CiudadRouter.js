@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express.Router();
-
+const ciudad = require('./CiudadController');
 // Autorizacion de formatos y encabezados en las peticiones
 
 app.use((req,res,next) =>{
@@ -12,8 +12,6 @@ app.use((req,res,next) =>{
 });
 
 // Ruta normal
-app.get('/all', (req,res) =>{
-    return res.status(200).json({data:'Lista de ciudad'});
-});
+app.get('/all', ciudad.mostrarCompras);
 
 module.exports = app;

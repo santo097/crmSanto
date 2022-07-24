@@ -16,4 +16,4 @@ exports.error = function(req,res,message,status){
         status:status,
         body:message
     })
-}
+} 

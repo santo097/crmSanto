@@ -1,8 +1,8 @@
 const {DataTypes}  = require('sequelize');
 
 module.exports = (sequelize, Sequelize) =>{
-    const TipoDocumento = sequelize.define("tipoDocumento",{
-        tipoDocumento:{
+    const Pais = sequelize.define("pais", {
+        pais:{
             type:DataTypes.STRING,
             allowNull:false
         },
@@ -11,6 +11,5 @@ module.exports = (sequelize, Sequelize) =>{
             allowNull:false
         }
     });
-
-    return TipoDocumento;
+    return Pais;
 }
