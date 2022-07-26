@@ -1,5 +1,3 @@
-
-
-exports.mostrarCompras = (req,res) =>{
-    res.send('Ciudades');
+export const mostrar = (req,res) =>{
+    res.send("Lista de ciudades");
 }

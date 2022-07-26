@@ -1,7 +1,7 @@
 const {DataTypes}  = require('sequelize');
 
 module.exports = (sequelize, Sequelize) =>{
-    const Ciudad = sequelize.define("ciudad",{
+    const Ciudad = sequelize.define("ciudade",{
         ciudad:{
             type:DataTypes.STRING,
             allowNull:false
