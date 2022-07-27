@@ -1,19 +1,9 @@
-const express = require('express');
-const app = express.Router();
+import { Router } from "express";
 
-// Autorizacion de formatos y encabezados en las peticiones
+const router = Router();
 
-app.use((req,res,next) =>{
-    res.header(
-        "Access-Control-Allow-Headers",
-        "x-access-token, Origin, Content-Type,Accept"
-    );
-    next();
+router.get("/mostrar", (req,res) =>{
+    res.send('Lista de roles');
 });
 
-// Ruta normal
-app.get('/all', (req,res) =>{
-    return res.status(200).json({data:'Lista de role'});
-});
-
-module.exports = app;
+export default router;
