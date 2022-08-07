@@ -1,15 +1,13 @@
-const {DataTypes}  = require('sequelize');
+import { sequelize } from '../Utilities/Database.js';
+import {DataTypes} from 'sequelize';
 
-module.exports = (sequelize, Sequelize) =>{
-    const Pais = sequelize.define("pais", {
-        pais:{
-            type:DataTypes.STRING,
-            allowNull:false
-        },
-        activo:{
-            type:DataTypes.BOOLEAN,
-            allowNull:false
-        }
-    });
-    return Pais;
-}
+export const Pais = sequelize.define("pais", {
+    pais:{
+        type:DataTypes.STRING,
+        allowNull:false
+    },
+    activo:{
+        type:DataTypes.BOOLEAN,
+        allowNull:false    
+    }
+});

@@ -1,9 +1,15 @@
-const {DataTypes}  = require('sequelize');
+import { DataTypes } from 'sequelize';
+import { sequelize } from '../Utilities/Database.js';
 
-module.exports = (sequelize, Sequelize) =>{
-    const Ciudad = sequelize.define("ciudade",{
+export const Ciudad = sequelize.define("ciudad", 
+    {
+        id:{
+            type:DataTypes.INTEGER,
+            primaryKey:true,
+            autoIncrement:true,
+        },
         ciudad:{
-            type:DataTypes.STRING,
+            type:DataTypes.INTEGER,
             allowNull:false
         },
         activo:{
@@ -11,5 +17,3 @@ module.exports = (sequelize, Sequelize) =>{
             allowNull:false
         }
     });
-    return Ciudad;
-}

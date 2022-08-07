@@ -1,16 +1,13 @@
-const {DataTypes}  = require('sequelize');
+import { DataTypes } from "sequelize";
+import { sequelize } from '../Utilities/Database.js';
 
-module.exports = (sequelize, Sequelize) =>{
-    const TipoDocumento = sequelize.define("tipoDocumento",{
-        tipoDocumento:{
-            type:DataTypes.STRING,
-            allowNull:false
-        },
-        activo:{
-            type:DataTypes.BOOLEAN,
-            allowNull:false
-        }
-    });
-
-    return TipoDocumento;
-}
+export const TipoDocumento = sequelize.define("tipoDocumento",{
+    tipoDocumento:{
+        type:DataTypes.STRING,
+        allowNull:false
+    },
+    activo:{
+        type:DataTypes.BOOLEAN,
+        allowNull:false
+    }
+});

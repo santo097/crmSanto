@@ -1,26 +1,28 @@
-const {DataTypes}  = require('sequelize');
+import { DataTypes } from 'sequelize';
+import { sequelize } from '../Utilities/Database.js';
 
-module.exports = (sequelize, Sequelize) =>{
-    const Contacto = sequelize.define("contacto", {
-        telefono:{
-            type:DataTypes.STRING,
-            allowNull:false
-        },
-        correo:{
-            type:DataTypes.STRING,
-            validate:{
-                isEmail:true
-            }
-        },
-        sitioweb:{
-            type:DataTypes.STRING,
-            allowNull:true
-        },
-        activo:{
-            type:DataTypes.BOOLEAN,
-            allowNull:false
+export const Contacto = sequelize.define("contacto", {
+    id:{
+        type:DataTypes.INTEGER,
+        primaryKey:true,
+        autoIncrement:true,
+    },
+    telefono:{
+        type:DataTypes.STRING,
+        allowNull:false
+    },
+    correo:{
+        type:DataTypes.STRING,
+        validate:{
+            isEmail:true
         }
-    });
-
-    return Contacto;
-}
+        },
+    sitioweb:{
+        type:DataTypes.STRING,
+        allowNull:true
+    },
+    activo:{
+        type:DataTypes.BOOLEAN,
+        allowNull:false
+    }
+});
