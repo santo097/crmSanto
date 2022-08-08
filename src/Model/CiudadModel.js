@@ -9,7 +9,7 @@ export const Ciudad = sequelize.define("ciudad",
             autoIncrement:true,
         },
         ciudad:{
-            type:DataTypes.INTEGER,
+            type:DataTypes.STRING,
             allowNull:false
         },
         activo:{

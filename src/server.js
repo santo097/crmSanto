@@ -14,8 +14,8 @@ import "./Model/UsuarioModel.js";
 const main = async() =>{
     try {
         await sequelize.authenticate();
-        await sequelize.sync({force:true});
         console.log('Conexion establecida');
+        // await sequelize.sync();
         server.listen(Configuracion.servidor.port, ()=>{
             console.log('Server on port: ', Configuracion.servidor.port);
         });
