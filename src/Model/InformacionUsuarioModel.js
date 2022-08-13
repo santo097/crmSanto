@@ -21,12 +21,12 @@ export const InformacionUsuario = sequelize.define("informacionusuario",{
 
 // Relacion usuario y direccion
 
-InformacionUsuario.hasMany(Direccion, {
+Direccion.hasMany(InformacionUsuario, {
     foreignKey:'direccionID',
     targetId:'id'
 });
 
-Direccion.belongsTo(InformacionUsuario,{
+InformacionUsuario.belongsTo(Direccion,{
     foreignKey:'direccionID',
     sourceKey:'id'
 });
@@ -34,24 +34,24 @@ Direccion.belongsTo(InformacionUsuario,{
 
 // Relacion usuario y direccion
 
-InformacionUsuario.hasMany(Contacto,{
+Contacto.hasMany(InformacionUsuario,{
     foreignKey:'contactoID',
     targetId:'id'
 });
 
-Contacto.belongsTo(InformacionUsuario,{
+InformacionUsuario.belongsTo(Contacto,{
     foreignKey:'contactoID',
     sourceKey:'id'
 });
 
 // Relacion informacion usuario
 
-InformacionUsuario.hasMany(TipoDocumento,{
+TipoDocumento.hasOne(InformacionUsuario,{
     foreignKey:'tipodocumentoID',
     targetId:'id'
 });
 
-TipoDocumento.belongsTo(InformacionUsuario,{
+InformacionUsuario.belongsTo(TipoDocumento,{
     foreignKey:'tipodocumentoID',
     sourceKey:'id'
 });

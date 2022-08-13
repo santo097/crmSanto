@@ -1,43 +1,44 @@
 import { Ciudad } from "../../Model/CiudadModel.js";
+import { Pais } from "../../Model/PaisModel.js";
 
-// Mostrar ciudades
+// Mostrar Pais
 
 export const mostrar = async (req,res) =>{
     try{
-        const ciudad = await Ciudad.findAll({
-            atributes:["id", "ciudad", "activo"]
+        const pais = await Pais.findAll({
+            attributes:["id", "pais", "activo"]
         });
         if(!ciudad.length){
-            return res.status(404).json('No existen datos de ciudad');
+            return res.status(404).json('no existen datos del pais');
         }
         else{
-            return res.status(200).json(ciudad);
+            return res.status(200).json(pais);
         }
     } catch(error){
         return res.status(500).json({
-            message: error.message
+            message:error.message
         });
     }
 }
 
-// Crear ciudad
+// Crear Pais
 
 export const crear = async (req,res) =>{
     try{
-        const ciudad = await Ciudad.findOrCreate({
-            where:{ciudad:req.body.ciudad},
+        const pais = await Pais.findOrCreate({
+            where:{pais:req.body.pais},
             defaults:{
-                activo:1,
+                activo:1
             }
         });
-        if(!ciudad.length){
+        if(!pais.length){
             return res.status(200).json({
-                message:'¡Ciudad agregada!'
+                message:'¡Pais agregado!'
             });
         }
         else{
             return res.status(302).json({
-                message:'La ciudad ya fue agregada'
+                message:error.message
             });
         }
     }catch(error){
@@ -51,64 +52,65 @@ export const crear = async (req,res) =>{
 
 export const buscarPorId = async(req,res) =>{
     try{
-        const ciudad = await Ciudad.findByPk(req.params.id);
+        const pais = await Pais.findByPk(req.params.id);
         if(!ciudad){
             return res.status(404).json({
-                message:'No existe la ciudad'
+                message:'No existe el pais'
             });
-        } 
+        }
         else{
             return res.status(200).json({
-                informacion:ciudad
+                informacion:pais
             });
         }
     }catch(error){
         return res.status(500).json({
-            message: error.message
+            message:error.message
         });
     }
 }
 
-// Actualizar ciudad
+// Actualizar pais
 
 export const actualizar = async(req,res) =>{
     try{
-        const ciudadBuscar = await Ciudad.findByPk(req.params.id);
-        if(!ciudadBuscar){
+        const paisBuscar = await Pais.findByPk(req.params.id);
+        if(!paisBuscar){
             return res.status(404).json({
-                message:'No existe la ciudad'
+                message:'No existe el pais'
             });
-        } 
-        else{
-            const ciudadActualizar = await Ciudad.update(
-                {ciudad:req.body.ciudad},
-                {where:{id:req.params.id}});
-            return res.status(200).json({message:"Ciudad Actualizada"});
         }
-    }catch(error){
+        else{
+            const paisActualizar = await Pais.update(
+                {pais:req.body.pais},
+                {where:{id:req.params.id}});
+            return res.status(200).json({message:"Pais Actualizado"});
+        }
+    } catch(error){
         return res.status(500).json({
-            message: error.message
+            message:error.message
         });
     }
 }
 
-// Inhabilitar ciudad
+
+// Inhabilitar pais
 
 export const inhabilitar = async(req,res) =>{
     try{
-        const ciudadBuscar = await Ciudad.findByPk(req.params.id);
-        if(!ciudadBuscar){
+        const paisBuscar = await Pais.findByPk(req.params.id);
+        if(!paisBuscar){
             return res.status(404).json({
-                message:'No existe la ciudad'
+                message:'No existe el pais'
             });
-        } 
+        }
         else{
-            const ciudadActualizar = await Ciudad.update(
+            const paisActualizar = await Pais.update(
                 {activo:0},
                 {where:{id:req.params.id}});
-            return res.status(200).json({message:"Ciudad inhabilitada"});
+                return res.status(200).json({message:"Pais inhabilitado"});
         }
-    }catch(error){
+    } catch(error){
         return res.status(500).json({
             message:error.message
         });

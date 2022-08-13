@@ -29,24 +29,24 @@ export const Usuario = sequelize.define("usuario", {
 
 // Relacion usuario e informacion usuario
 
-Usuario.hasOne(InformacionUsuario, {
+InformacionUsuario.hasOne(Usuario, {
     foreignKey:'informacionusuarioID',
     targetId:'id'
 });
 
-InformacionUsuario.belongsTo(Usuario, {
+Usuario.belongsTo(InformacionUsuario, {
     foreignKey:'informacionusuarioID',
     sourceKey:'id'
 });
 
 // Relacion usuario Role
 
-Usuario.hasOne(Role, {
+Role.hasOne(Usuario, {
     foreignKey:'roleID',
     targetId:'id'
 });
 
-Role.belongsTo(Usuario,{
+Usuario.belongsTo(Role,{
     foreignKey:'roleID',
     sourceKey:'id'
 });

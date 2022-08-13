@@ -25,24 +25,24 @@ export const Direccion = sequelize.define("direccione", {
 
 // Relacion direccion pais
 
-Direccion.hasMany(Pais, {
+Pais.hasMany(Direccion, {
     foreignKey:'paisID',
     sourceKey:'id',
 });
 
-Pais.belongsTo(Direccion, {
+Direccion.belongsTo(Pais, {
     foreignKey: "paisID",
     targetId:"id"
 });
 
 // Relacion direccion ciudad
 
-Direccion.hasMany(Ciudad,{
+Ciudad.hasMany(Direccion,{
     foreignKey:'ciudadID',
     sourceKey:'id'
 });
 
-Ciudad.belongsTo(Direccion,{
+Direccion.belongsTo(Ciudad,{
     foreignKey:'ciudadID',
     targetId:'id'
 });
