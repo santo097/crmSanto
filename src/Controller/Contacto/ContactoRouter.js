@@ -1,10 +1,18 @@
 import { Router } from "express";
+import { mostrar,crear, buscarPorId,actualizar,inhabilitar } from "./ContactoController";
 
 const router = Router();
 
-router.get("/mostrar", (req,res) =>{
-    res.send('Lista de contactos');
-});
+// Mostrar contactos
+router.get("/mostrar",  mostrar);
+// Crear contacto
+router.post("/crear", crear);
+// Buscar contacto por id
+router.get("/:id", buscarPorId);
+// Actualizar contacto
+router.put("/actualizar/:id", actualizar);
+// Inhabilitar contacto por id
+router.put("/inhabilitar/:id", inhabilitar);
 
 
 export default router;
