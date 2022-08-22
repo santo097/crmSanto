@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { mostrar,crear, buscarPorId,actualizar,inhabilitar } from "./ContactoController";
+import { mostrar,crear, buscarPorId,actualizar,inhabilitar } from "./ContactoController.js";
 
 const router = Router();
 
@@ -13,6 +13,5 @@ router.get("/:id", buscarPorId);
 router.put("/actualizar/:id", actualizar);
 // Inhabilitar contacto por id
 router.put("/inhabilitar/:id", inhabilitar);
-
 
 export default router;

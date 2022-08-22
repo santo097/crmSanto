@@ -1,4 +1,4 @@
-import { Contacto } from "../../Model/ContactoModel";
+import { Contacto } from "../../Model/ContactoModel.js";
 
 // Mostrar Contactos
 
