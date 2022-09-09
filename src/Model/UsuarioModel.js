@@ -4,14 +4,6 @@ import { InformacionUsuario } from "./InformacionUsuarioModel.js";
 import { Role } from "./RoleModel.js";
 
 export const Usuario = sequelize.define("usuario", {
-    nombre:{
-        type:DataTypes.STRING,
-        allowNull:false
-    },
-    apellidos:{
-        type:DataTypes.STRING,
-        allowNull:false
-    },
     usuario:{
         type:DataTypes.STRING,
         allowNull:false

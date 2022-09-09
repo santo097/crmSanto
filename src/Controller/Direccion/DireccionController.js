@@ -1,5 +1,3 @@
-import { response } from "express";
-import { RowDescriptionMessage } from "pg-protocol/dist/messages";
 import { Direccion} from "../../Model/DireccionModel.js";
 
 // Mostrar direccion
