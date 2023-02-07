@@ -1,6 +1,6 @@
 import { InformacionUsuario } from "../../Model/InformacionUsuarioModel.js";
 
-// Mostrar info de los usuarios
+// Mostrar info de los usuarios 
 
 export const mostrar = async (req,res) =>{
     try{
