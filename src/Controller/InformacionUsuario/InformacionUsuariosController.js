@@ -1,4 +1,3 @@
-import { DataTypes } from "sequelize/types/index.js";
 import { InformacionUsuario } from "../../Model/InformacionUsuarioModel.js";
 
 // Mostrar info de los usuarios
